@@ -60,6 +60,14 @@
         </pluginManagement>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>bintray-hivemq-HiveMQ-hivemq-maven-archetype</id>
+            <name>hivemq-HiveMQ-hivemq-maven-archetype</name>
+            <url>https://api.bintray.com/maven/hivemq/HiveMQ/hivemq-maven-archetype</url>
+        </repository>
+    </distributionManagement>
+
 
     <licenses>
         <license>
