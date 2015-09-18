@@ -2,7 +2,7 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 /*
- * Copyright 2013 dc-square GmbH
+ * Copyright 2015 dc-square GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,11 +19,11 @@
 
 package ${package}.callbacks;
 
-import com.dcsquare.hivemq.spi.callback.CallbackPriority;
-import com.dcsquare.hivemq.spi.callback.events.OnPublishReceivedCallback;
-import com.dcsquare.hivemq.spi.callback.exception.OnPublishReceivedException;
-import com.dcsquare.hivemq.spi.message.PUBLISH;
-import com.dcsquare.hivemq.spi.security.ClientData;
+import com.hivemq.spi.callback.CallbackPriority;
+import com.hivemq.spi.callback.events.OnPublishReceivedCallback;
+import com.hivemq.spi.callback.exception.OnPublishReceivedException;
+import com.hivemq.spi.message.PUBLISH;
+import com.hivemq.spi.security.ClientData;
 import com.google.common.base.Charsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  * a new message is published to the broker. This callback enables a custom handling of a
  * MQTT message, for acme saving to a database.
  *
- * @author Christian Goetz
+ * @author Christian Götz
  */
 public class PublishReceived implements OnPublishReceivedCallback {
 

@@ -2,7 +2,7 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 /*
- * Copyright 2013 dc-square GmbH
+ * Copyright 2015 dc-square GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@
 
 package ${package}.callbacks;
 
-import com.dcsquare.hivemq.spi.callback.events.OnDisconnectCallback;
-import com.dcsquare.hivemq.spi.security.ClientData;
+import com.hivemq.spi.callback.events.OnDisconnectCallback;
+import com.hivemq.spi.security.ClientData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
  * This class implements the OnDisconnectCallback, which is invoke everytime a client disconnects.
  * The callback allows to implement custom logic, which should be executed after a disconnect.
  *
- * @author Christian Goetz
+ * @author Christian Götz
  */
 public class ClientDisconnect implements OnDisconnectCallback {
 
@@ -39,8 +39,8 @@ public class ClientDisconnect implements OnDisconnectCallback {
      *
      * @param clientData       Useful information about the clients authentication state and credentials.
      * @param abruptDisconnect When true the connection of the client broke down without a
-     *                         {@link com.dcsquare.hivemq.spi.message.DISCONNECT} message and if false then the client
-     *                         disconnected properly with a {@link com.dcsquare.hivemq.spi.message.DISCONNECT} message.
+     *                         {@link com.hivemq.spi.message.DISCONNECT} message and if false then the client
+     *                         disconnected properly with a {@link com.hivemq.spi.message.DISCONNECT} message.
      */
     @Override
     public void onDisconnect(ClientData clientData, boolean abruptDisconnect) {
