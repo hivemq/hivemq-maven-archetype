@@ -20,7 +20,6 @@
 package ${package}.plugin;
 
 import ${package}.callbacks.*;
-import com.hivemq.callbacks.ClientConnect;
 import com.hivemq.spi.PluginEntryPoint;
 import com.hivemq.spi.callback.events.OnConnectCallback;
 import com.hivemq.spi.callback.registry.CallbackRegistry;
