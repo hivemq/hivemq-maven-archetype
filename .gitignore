@@ -7,3 +7,4 @@
 /hivemq-hello-world-plugin.iml
 src/test/resources/projects/basic/archetype.properties
 src/test/resources/projects/basic/goal.txt
+hivemq-plugin-archetype.iml

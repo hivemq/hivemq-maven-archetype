@@ -20,12 +20,9 @@
 package ${package}.plugin;
 
 import ${package}.callbacks.*;
-import ${package}.callbacks.advanced.*;
 import com.hivemq.spi.PluginEntryPoint;
+import com.hivemq.spi.callback.events.OnConnectCallback;
 import com.hivemq.spi.callback.registry.CallbackRegistry;
-import com.hivemq.spi.message.QoS;
-import com.hivemq.spi.message.RetainedMessage;
-import com.hivemq.spi.services.RetainedMessageStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,33 +38,17 @@ public class HelloWorldMainClass extends PluginEntryPoint {
 
     Logger log = LoggerFactory.getLogger(HelloWorldMainClass.class);
 
-    private final RetainedMessageStore retainedMessageStore;
-
     private final ClientConnect clientConnect;
-    private final PublishReceived publishReceived;
-    private final SimpleScheduledCallback simpleScheduledCallback;
-    private final ScheduledClearRetainedCallback scheduledClearRetainedCallback;
-    private final AddSubscriptionOnClientConnect addSubscriptionOnClientConnect;
-    private final SendListOfAllClientsOnPublish sendListOfAllClientsOnPublish;
-    private final HiveMQStart hiveMQStart;
 
-
+    /**
+     * This is the injected constructor.
+     *
+     * @param clientConnect the to be injected implementation of the {@link OnConnectCallback} interface
+     */
     @Inject
-    public HelloWorldMainClass(final RetainedMessageStore retainedMessageStore,
-                               final ClientConnect clientConnect, final PublishReceived publishReceived,
-                               final SimpleScheduledCallback simpleScheduledCallback,
-                               final ScheduledClearRetainedCallback scheduledClearRetainedCallback,
-                               final AddSubscriptionOnClientConnect addSubscriptionOnClientConnect,
-                               final SendListOfAllClientsOnPublish sendListOfAllClientsOnPublish,
-                               final HiveMQStart hiveMQStart){
-        this.retainedMessageStore = retainedMessageStore;
+    public HelloWorldMainClass(final ClientConnect clientConnect) {
+
         this.clientConnect = clientConnect;
-        this.publishReceived = publishReceived;
-        this.simpleScheduledCallback = simpleScheduledCallback;
-        this.scheduledClearRetainedCallback = scheduledClearRetainedCallback;
-        this.addSubscriptionOnClientConnect = addSubscriptionOnClientConnect;
-        this.sendListOfAllClientsOnPublish = sendListOfAllClientsOnPublish;
-        this.hiveMQStart = hiveMQStart;
     }
 
     /**
@@ -78,24 +59,7 @@ public class HelloWorldMainClass extends PluginEntryPoint {
     public void postConstruct() {
 
         CallbackRegistry callbackRegistry = getCallbackRegistry();
-        callbackRegistry.addCallback(hiveMQStart);
+
         callbackRegistry.addCallback(clientConnect);
-        callbackRegistry.addCallback(new ClientDisconnect());
-        callbackRegistry.addCallback(publishReceived);
-        callbackRegistry.addCallback(simpleScheduledCallback);
-        callbackRegistry.addCallback(scheduledClearRetainedCallback);
-        callbackRegistry.addCallback(addSubscriptionOnClientConnect);
-        callbackRegistry.addCallback(sendListOfAllClientsOnPublish);
-
-        addRetainedMessage("/default", "Hello World.");
-    }
-
-    /**
-     * Programmatically add a new Retained Message.
-     */
-    public void addRetainedMessage(String topic, String message) {
-
-        if (!retainedMessageStore.contains(new RetainedMessage(topic, new byte[]{}, QoS.valueOf(0))))
-            retainedMessageStore.addOrReplace(new RetainedMessage(topic, message.getBytes(), QoS.valueOf(1)));
     }
 }
