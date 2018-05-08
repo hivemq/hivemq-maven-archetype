@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Christian Götz
  */
-@Information(name = "HiveMQ HelloWorld Plugin", author = "Christian Götz", version = "3.0.0")
+@Information(name = "HiveMQ HelloWorld Plugin", author = "dc-square GmbH", version = "3.0.0")
 public class HelloWorldPluginModule extends HiveMQPluginModule {
 
 
