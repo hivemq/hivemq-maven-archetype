@@ -1,0 +1,7 @@
+:extensions: https://github.com/hivemq/hivemq-maven-extension-archetype
+
+= Hivemq Maven Archetype
+
+NOTE: HiveMQ 4 uses a new extension system. This HiveMQ 3 archetype for plugins is not compatible with HiveMQ 4. The new version can be found {extension}[here].
+
+A Maven Archetype for easy plugin development.
