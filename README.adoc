@@ -1,4 +1,4 @@
-:extensions: https://github.com/hivemq/hivemq-maven-extension-archetype
+:extension: https://github.com/hivemq/hivemq-maven-extension-archetype
 
 = Hivemq Maven Archetype
 
