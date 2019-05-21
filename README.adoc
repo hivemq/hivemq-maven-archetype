@@ -5,3 +5,12 @@
 NOTE: HiveMQ 4 uses a new extension system. This HiveMQ 3 archetype for plugins is not compatible with HiveMQ 4. The new version can be found {extension}[here].
 
 A Maven Archetype for easy plugin development.
+
+= Contributing
+
+If you want to contribute to HiveMQ Maven Archetype, see the link:CONTRIBUTING.md[contribution guidelines].
+
+= License
+
+HiveMQ Maven Archetype is licensed under the `APACHE LICENSE, VERSION 2.0`. A copy of the license can be found link:LICENSE[here].
+
